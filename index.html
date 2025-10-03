@@ -513,36 +513,6 @@
               </div>
             </div>
             <div class="card">
-              <div class="muted">R² Score</div>
-              <div
-                class="v"
-                id="k_r2"
-                style="font-size: 12px; line-height: 1.3"
-              >
-                -
-              </div>
-            </div>
-            <div class="card">
-              <div class="muted">MAE (Baht)</div>
-              <div
-                class="v"
-                id="k_mae"
-                style="font-size: 12px; line-height: 1.3"
-              >
-                -
-              </div>
-            </div>
-            <div class="card">
-              <div class="muted">RMSE (Baht)</div>
-              <div
-                class="v"
-                id="k_rmse"
-                style="font-size: 12px; line-height: 1.3"
-              >
-                -
-              </div>
-            </div>
-            <div class="card">
               <div class="muted">Features</div>
               <div
                 class="v"
@@ -592,9 +562,6 @@
         debug: document.getElementById("debug"),
         kpi: document.getElementById("kpi"),
         k_model: document.getElementById("k_model"),
-        k_r2: document.getElementById("k_r2"),
-        k_mae: document.getElementById("k_mae"),
-        k_rmse: document.getElementById("k_rmse"),
         k_feats: document.getElementById("k_feats"),
       };
 
@@ -703,9 +670,6 @@
         els.kpi.style.display = "flex";
         els.kpi.style.flexDirection = "column";
         els.k_model.textContent = "CatBoost";
-        els.k_r2.textContent = root.model_performance.test_r2 || "-";
-        els.k_mae.textContent = root.model_performance.test_mae || "-";
-        els.k_rmse.textContent = root.model_performance.test_rmse || "-";
         els.k_feats.textContent = root.feature_count || "36";
         console.log("Root feature_count:", root.feature_count);
       }
@@ -715,9 +679,6 @@
         els.kpi.style.flexDirection = "column";
         const testPerf = info.performance_metrics?.test || {};
         els.k_model.textContent = info.model_type || "CatBoost";
-        els.k_r2.textContent = testPerf.r2 || testPerf.r2_score || "-";
-        els.k_mae.textContent = testPerf.mae || "-";
-        els.k_rmse.textContent = testPerf.rmse || "-";
         els.k_feats.textContent = info.feature_count || "36";
         console.log("ModelInfo feature_count:", info.feature_count);
       }
@@ -767,9 +728,6 @@
           els.kpi.style.display = "flex";
           els.kpi.style.flexDirection = "column";
           els.k_model.textContent = "CatBoost";
-          els.k_r2.textContent = "-";
-          els.k_mae.textContent = "-";
-          els.k_rmse.textContent = "-";
           els.k_feats.textContent = "36";
         } finally {
           setLoading(false);
