@@ -622,8 +622,6 @@
       <tr><th>Historical Prices Used</th><td>${
         res.historical_prices_used
       }</td></tr>
-      <tr><th>Model r²</th><td>${res.model_info?.r2_score ?? "-"}</td></tr>
-      <tr><th>MAE</th><td>${res.model_info?.mae ?? "-"}</td></tr>
     `;
         els.outTable.innerHTML = table(rows);
       }
